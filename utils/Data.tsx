@@ -1,14 +1,4 @@
-import { Hero } from "@/components/Hero";
-import { About } from "@/components/About";
-import { Skills } from "@/components/Skills";
-import { Projects } from "@/components/Projects";
-import { Experience } from "@/components/Experience";
-import { Contact } from "@/components/Contact";
-import { Navigation } from "@/components/Navigation";
-import { AnchorHandler } from "@/components/AnchorHandler";
-
-export default function Home() {
-  const structuredData = {
+export const structuredData = {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Sunil S",
@@ -44,26 +34,3 @@ export default function Home() {
       "skills": "Backend Development, UI Development, Full-Stack Development"
     }
   }
-
-  return (
-    <div className="min-h-screen bg-background">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(structuredData),
-        }}
-      />
-      <AnchorHandler />
-
-      <main>
-        <Navigation />
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Experience />
-        <Contact />
-      </main>
-    </div>
-  )
-}
