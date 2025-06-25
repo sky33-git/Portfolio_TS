@@ -38,4 +38,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 Simple portfolio developed using Next JS
 
 Had a good exp using NextJS!
-
+// https://portfolio-ts-omega.vercel.app/

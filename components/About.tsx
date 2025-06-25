@@ -82,13 +82,13 @@ export function About() {
                 <p className="text-muted-foreground leading-relaxed">
                   Im from Chittoor, AP currently staying in Bengaluru, KA. <br /> I completed my graduation in Bachelor&apos;s of Science in Computer science and Mathematics in 2024 at Vijayam science and arts degree college.
                   My journey started as a gamer, and started working in a gaming org, expanded into Strategic operations and matured into full-stack software
-                  development — especially frontend systems and APIs. Who;s eagerly waiting for a opportunities to transform into full time developer.
+                  development — especially frontend systems and APIs. Who&apos;s eagerly waiting for a opportunities to transform into full time developer.
                 </p>
 
                 <p className="text-muted-foreground leading-relaxed">
-                  Currently, I&npos;m working in Conduent Technologies, where I manage product knowledge and documentation,
+                  Currently, I&apos;m working in Conduent Technologies, where I manage product knowledge and documentation,
                   developing detailed FAQs and essential support materials.
-                  By analyzing customer interactions and collaborating directly with key clients,
+                  By analyzing customer interactions and collaborating directly gwith key clients,
                   I continually refine self-service resources and knowledge base content.
                   My work involves partnering with cross-functional teams to
                   ensure support aligns seamlessly with product evolution and user needs.
