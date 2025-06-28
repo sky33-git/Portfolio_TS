@@ -6,7 +6,7 @@ const projects = [
     title: "Library Management Sytem",
     description: "An application to automate and streamline the management of books, users and transactions in a library, aimed at improving overall library operations",
     technologies: [" HTML", "CSS", "JavaScript", "React.js", "JSON Server"],
-    githubUrl: "https://github.com/sky33-git",
+    githubUrl: "https://github.com/sky33-git" | "https://library-management-phi-gray.vercel.app/",
     status: "Featured",
     stats: { stars: "Effeciency", users: "Time cutting", growth: "Production" },
     category: "Tool",
