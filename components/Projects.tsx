@@ -6,7 +6,7 @@ const projects = [
     title: "Library Management Sytem",
     description: "An application to automate and streamline the management of books, users and transactions in a library, aimed at improving overall library operations",
     technologies: [" HTML", "CSS", "JavaScript", "React.js", "JSON Server"],
-    githubUrl: "https://github.com/sky33-git" | "https://library-management-phi-gray.vercel.app/",
+    liveUrl: "https://library-management-phi-gray.vercel.app/",
     status: "Featured",
     stats: { stars: "Effeciency", users: "Time cutting", growth: "Production" },
     category: "Tool",
@@ -96,6 +96,7 @@ export function Projects() {
 
 
                 <div className="relative h-48 bg-gradient-to-br from-primary/10 via-purple-500/10 to-primary/10 overflow-hidden">
+                  Live link :-https://library-management-phi-gray.vercel.app/
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                   <div className="absolute top-4 left-4">
                     <div className={`${getStatusColor(project.status)} text-white border-0 shadow-lg flex items-center gap-1`}>
