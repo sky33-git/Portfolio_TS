@@ -178,7 +178,7 @@ export function Hero() {
             <button onClick={scrollToContact} className="relative items-center justify-center p-0.5 mb-2 me-2 cursor-pointer overflow-hidden text-sm font-medium text-gray-900">
                 <a
                 className="relative flex items-center px-5 py-2.5 transition-all ease-in duration-75 bg-black rounded-xl text-gray-600 hover:bg-gradient-to-br from-purple-600 to-black hover:text-white"
-                 href="https://drive.google.com/file/d/1RpvKmDOu4DUBSbJfb72PgDKtncdt96m3/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+                 href="https://drive.google.com/file/d/1RpvKmDOu4DUBSbJfb72PgDKtncdt96m3/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
                   <FileText className="mr-2 h-4 w-4" />
                   My Resume
                 </a>

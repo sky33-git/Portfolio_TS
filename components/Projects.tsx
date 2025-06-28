@@ -1,43 +1,133 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/utils/Card";
+"use client"
+
+import React from 'react';
 import { Star, Users, TrendingUp, Award, Shield, Code2 } from "lucide-react";
 
-const Card = ({ children, className }) => (
-  <div className={`border rounded-lg bg-white ${className}`}>
-    {children}
-  </div>
-);
+export default function Projects() {
 
-const CardHeader = ({ children, className }) => (
-  <div className={`p-4 ${className}`}>
-    {children}
-  </div>
-);
+  const handleClick = () => {
+    window.open(`https://library-management-phi-gray.vercel.app/`, '_blank');
+  }
 
-const CardTitle = ({ children, className }) => (
-  <h3 className={`text-xl font-semibold ${className}`}>
-    {children}
-  </h3>
-);
+  return (
+    <section id="projects" className="py-16 bg-black">
+      <div className="container mx-auto px-4 max-w-6xl">
+        <div className="text-center mb-12">
+          <h2 className="text-5xl font-extrabold text-gray-100 mb-4">
+            My Featured Projects
+          </h2>
+          <p className="mx-auto max-w-2xl text-xl text-gray-200 leading-relaxed">
+            Innovative solutions spanning <span className="font-semibold text-blue-600">Frontend development</span>, <span className="font-semibold text-purple-600">infrastructure monitoring</span> and <span className="font-semibold text-green-600">system optimization</span>.
+          </p>
+        </div>
 
-const CardDescription = ({ children, className }) => (
-  <p className={`text-sm text-gray-600 ${className}`}>
-    {children}
-  </p>
-);
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2">
+          {Data.map((project, index) => {
+            const StatusIcon = getStatusIcon(project.status);
+            return (
+              <div key={index} className="group relative overflow-hidden rounded-lg border bg-black text-gray-100 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2">
 
-const CardContent = ({ children, className }) => (
-  <div className={`p-4 ${className}`}>
-    {children}
-  </div>
-);
+                <div className="relative h-48 bg-gradient-to-br from-purple-100 to-blue-100 flex items-end justify-start p-4">
+                  <div className="absolute top-4 left-4">
+                    <div className={`${getStatusColor(project.status)} px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-1 shadow-sm`}>
+                      <StatusIcon className="h-4 w-4" />
+                      {project.status}
+                    </div>
+                  </div>
 
+                  <div className="absolute top-4 right-4">
+                    <div className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-xs font-semibold shadow-sm">
+                      {project.category}
+                    </div>
+                  </div>
 
-export default const projects = [
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <div className="flex justify-between items-center text-sm text-white/80">
+                      <div className="flex items-center gap-4">
+                        <div className="flex items-center gap-1">
+                          <Star className="h-4 w-4 text-yellow-600" />
+                          <span>{project.stats.stars}</span>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <Users className="h-4 w-4 text-blue-600" />
+                          <span>{project.stats.users}</span>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <TrendingUp className="h-4 w-4 text-green-600" />
+                          <span>{project.stats.growth}</span>
+                        </div>
+
+                        {project.title === "Library Management Sytem" && (
+                          <button
+                            id="redirectButton"
+                            className="cursor-pointer bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-300"
+                            onClick={handleClick}
+                          >
+                            Check Production!
+                          </button>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="p-6 space-y-4">
+                  <div className="space-y-2">
+                    <h3 className="text-2xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+                      {project.title}
+                    </h3>
+                    <p className="text-gray-700 leading-relaxed text-base">
+                      {project.description}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="p-6 space-y-4 pt-0">
+                  {project.achievements && project.achievements.length > 0 && (
+                    <div className="space-y-2">
+                      <h4 className="font-semibold text-gray-800 flex items-center gap-2">
+                        <Award className="h-5 w-5 text-purple-600" />
+                        Key Achievements:
+                      </h4>
+                      <ul className="list-none space-y-1 pl-0">
+                        {project.achievements.slice(0, 2).map((achievement, idx) => (
+                          <li key={idx} className="text-sm text-gray-600 flex items-start gap-2">
+                            <span className="w-2 h-2 bg-purple-500 rounded-full mt-1.5 flex-shrink-0"></span>
+                            {achievement}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  {project.technologies && project.technologies.length > 0 && (
+                    <div className="space-y-2">
+                      <h4 className="font-semibold text-gray-800">Technologies:</h4>
+                      <div className="flex flex-wrap gap-2">
+                        {project.technologies.map((tech) => (
+                          <span key={tech} className="bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-xs font-medium">
+                            {tech.trim()}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+const Data = [
   {
     title: "Library Management Sytem",
     description: "An application to automate and streamline the management of books, users and transactions in a library, aimed at improving overall library operations",
-    technologies: [" HTML", "CSS", "JavaScript", "React.js", "JSON Server"],
-    githubUrl: "https://github.com/sky33-git",
+    technologies: ["HTML", "JavaScript", "React.js", "Node.js", "Express.js", "MongoDB Atlas", "Redux Toolkit", "Tailwind CSS"],
+    githubUrl: "https://github.com/sky33-git/Library_Management",
     status: "Featured",
     stats: { stars: "Effeciency", users: "Time cutting", growth: "Production" },
     category: "Tool",
@@ -52,7 +142,6 @@ export default const projects = [
     title: "Infrastructure Monitoring & Vulnerability Scanning Suite",
     description: "Developed a full-featured Swiggy clone, enabling users to browse restaurants, view menus, place orders, and track deliveries.",
     technologies: ["HTML", "CSS", "JavaScript", "React.js", "Node.js", "Express.js", "MongoDB Atlas", "Redux Toolkit", "Tailwind CSS"],
-    liveUrl: "https://example.com/infra-monitor-live", // Added liveUrl for this project
     status: "UI Develop",
     stats: { stars: "30+ Rules", users: "Live API's", growth: "99% UI Match" },
     category: "Responsive design",
@@ -77,7 +166,7 @@ export default const projects = [
   }
 ];
 
-const getStatusColor = (status) => {
+const getStatusColor = (status: string) => {
   switch (status) {
     case "Featured": return "bg-yellow-500 text-yellow-900";
     case "UI Develop": return "bg-green-500 text-green-900";
@@ -86,12 +175,7 @@ const getStatusColor = (status) => {
   }
 };
 
-function handleClick(){
-  window.open(`https://library-management-phi-gray.vercel.app/`)
-}
-
-// Helper function to get status icon
-const getStatusIcon = (status) => {
+const getStatusIcon = (status: string) => {
   switch (status) {
     case "Featured": return Award;
     case "UI Develop": return Shield;
@@ -99,136 +183,3 @@ const getStatusIcon = (status) => {
     default: return Star;
   }
 };
-
-export default function App() { // Changed to default export App for direct preview
-  return (
-    <section id="projects" className="py-16 bg-gray-50">
-      <div className="container mx-auto px-4 max-w-6xl">
-        <div className="text-center mb-12">
-          <h2 className="text-5xl font-extrabold text-gray-900 mb-4">
-            My Featured Projects
-          </h2>
-          <p className="mx-auto max-w-2xl text-xl text-gray-600 leading-relaxed">
-            Innovative solutions spanning <span className="font-semibold text-blue-600">Frontend development</span>, <span className="font-semibold text-purple-600">infrastructure monitoring</span> and <span className="font-semibold text-green-600">system optimization</span>.
-          </p>
-        </div>
-
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2">
-          {projects.map((project, index) => {
-            const StatusIcon = getStatusIcon(project.status);
-            return (
-              <Card key={index} className="group relative overflow-hidden border-0 bg-gradient-to-br from-card to-card/50 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
-
-                <div className="relative h-48 bg-gradient-to-br from-purple-100 to-blue-100 flex items-end justify-start p-4">
-                  {project.liveUrl && (
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="absolute bottom-4 right-4 text-white text-sm font-semibold bg-blue-700/80 backdrop-blur-sm px-4 py-2 rounded-full hover:bg-blue-800/90 transition-colors duration-300 flex items-center gap-2 shadow-md"
-                    >
-                      Live Project <span className="text-lg leading-none">→</span>
-                    </a>
-                  )}
-
-                  {/* Status Badge */}
-                  <div className="absolute top-4 left-4">
-                    <div className={`${getStatusColor(project.status)} px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-1 shadow-sm`}>
-                      <StatusIcon className="h-4 w-4" />
-                      {project.status}
-                    </div>
-                  </div>
-
-                  {/* Category Badge */}
-                  <div className="absolute top-4 right-4">
-                    <div className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-xs font-semibold shadow-sm">
-                      {project.category}
-                    </div>
-                  </div>
-
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <div className="flex justify-between items-center text-sm text-white/80">
-                      <div className="flex items-center gap-4">
-                        <div className="flex items-center gap-1">
-                          <Star className="h-4 w-4 text-yellow-600" />
-                          <span>{project.stats.stars}</span>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <Users className="h-4 w-4 text-blue-600" />
-                          <span>{project.stats.users}</span>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <TrendingUp className="h-4 w-4 text-green-600" />
-                          <span>{project.stats.growth}</span>
-                        </div>
-
-                        {project.liveUrl ? 
-        
-                        <button
-                          id="redirectButton"
-                          className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-300"
-                          onClick={handleClick} >
-                          Check Production!
-                        </button> : ""
-                       
-                       }
-                      </div>
-                    </div>
-
-
-                  </div>
-                </div>
-
-                {/* Card Content */}
-                <CardHeader className="p-6 space-y-4">
-                  <div className="space-y-2">
-                    <CardTitle className="text-2xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
-                      {project.title}
-                    </CardTitle>
-                    <CardDescription className="text-gray-700 leading-relaxed text-base">
-                      {project.description}
-                    </CardDescription>
-                  </div>
-                </CardHeader>
-
-                <CardContent className="p-6 space-y-4 pt-0">
-                  {/* Key Achievements */}
-                  {project.achievements && project.achievements.length > 0 && (
-                    <div className="space-y-2">
-                      <h4 className="font-semibold text-gray-800 flex items-center gap-2">
-                        <Award className="h-5 w-5 text-purple-600" />
-                        Key Achievements:
-                      </h4>
-                      <ul className="list-none space-y-1 pl-0">
-                        {project.achievements.slice(0, 2).map((achievement, idx) => (
-                          <li key={idx} className="text-sm text-gray-600 flex items-start gap-2">
-                            <span className="w-2 h-2 bg-purple-500 rounded-full mt-1.5 flex-shrink-0"></span>
-                            {achievement}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-
-                  {/* Technologies */}
-                  {project.technologies && project.technologies.length > 0 && (
-                    <div className="space-y-2">
-                      <h4 className="font-semibold text-gray-800">Technologies:</h4>
-                      <div className="flex flex-wrap gap-2">
-                        {project.technologies.map((tech) => (
-                          <span key={tech} className="bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-xs font-medium">
-                            {tech.trim()}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </CardContent>
-              </Card>
-            );
-          })}
-        </div>
-      </div>
-    </section>
-  );
-}

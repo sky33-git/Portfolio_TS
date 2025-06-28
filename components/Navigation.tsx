@@ -37,7 +37,7 @@ export function Navigation() {
         { id: "skills", label: "Skills" },
         { id: "projects", label: "Projects" },
         { id: "experience", label: "Certifications" },
-        { id: "resume", label: "Resume", href: "https://drive.google.com/file/d/1413Z-6qO-Lq5CpeAAe56Prcp6reKMC62/view", external: true },
+        { id: "resume", label: "Resume", href: "https://drive.google.com/file/d/1RpvKmDOu4DUBSbJfb72PgDKtncdt96m3/view?usp=drive_link", external: true },
         { id: "contact", label: "Contact" },
     ];
 
@@ -125,7 +125,7 @@ export function Navigation() {
                                             </button>
                                             <button
                                                 className="w-full justify-start border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground"
-                                                onClick={() => handleNavigation({ id: "resume", label: "Resume", href: "https://drive.google.com/file/d/1413Z-6qO-Lq5CpeAAe56Prcp6reKMC62/view?usp=sharing", external: true })}
+                                                onClick={() => handleNavigation({ id: "resume", label: "Resume", href: "https://drive.google.com/file/d/1RpvKmDOu4DUBSbJfb72PgDKtncdt96m3/view?usp=drive_link", external: true })}
                                             >
                                                 My CV
                                             </button>
