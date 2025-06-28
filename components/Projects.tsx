@@ -6,7 +6,7 @@ const projects = [
     title: "Library Management Sytem",
     description: "An application to automate and streamline the management of books, users and transactions in a library, aimed at improving overall library operations",
     technologies: [" HTML", "CSS", "JavaScript", "React.js", "JSON Server"],
-    liveUrl: "https://library-management-phi-gray.vercel.app/",
+    liveUrl: "https://library-management-phi-gray.vercel.app/", // This is the URL to use
     status: "Featured",
     stats: { stars: "Effeciency", users: "Time cutting", growth: "Production" },
     category: "Tool",
@@ -94,18 +94,28 @@ export function Projects() {
             return (
               <Card key={index} className="group relative overflow-hidden border-0 bg-gradient-to-br from-card to-card/50 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
 
-
-                <div className="relative h-48 bg-gradient-to-br from-primary/10 via-purple-500/10 to-primary/10 overflow-hidden">
-                  Live link :-https://library-management-phi-gray.vercel.app/
+                <div className="relative h-48 bg-gradient-to-br from-primary/10 via-purple-500/10 to-primary/10 overflow-hidden flex items-end justify-start p-4"> {/* Added flex and padding */}
+                  {/* Changed from plain text to a clickable link */}
+                  {project.liveUrl && ( // Only render if liveUrl exists
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-white text-sm font-semibold bg-blue-700/80 backdrop-blur-sm px-3 py-1 rounded-full hover:bg-blue-800/90 transition-colors duration-300 flex items-center gap-1"
+                    >
+                      Live Project <span className="ml-1">→</span>
+                    </a>
+                  )}
+                  
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                   <div className="absolute top-4 left-4">
-                    <div className={`${getStatusColor(project.status)} text-white border-0 shadow-lg flex items-center gap-1`}>
+                    <div className={`${getStatusColor(project.status)} text-white border-0 shadow-lg flex items-center gap-1 px-3 py-1 rounded-full text-xs`}> {/* Added padding and rounded-full */}
                       <StatusIcon className="h-3 w-3" />
                       {project.status}
                     </div>
                   </div>
                   <div className="absolute top-4 right-4">
-                    <div className="bg-background/80 backdrop-blur-sm border-transparent bg-secondary text-secondary-foreground [a&]:hover:bg-secondary/90">
+                    <div className="bg-background/80 backdrop-blur-sm border-transparent bg-secondary text-secondary-foreground [a&]:hover:bg-secondary/90 px-3 py-1 rounded-full text-xs"> {/* Added padding and rounded-full */}
                       {project.category}
                     </div>
                   </div>
@@ -161,7 +171,7 @@ export function Projects() {
                     <h4 className="font-semibold text-sm">Technologies:</h4>
                     <div className="flex flex-wrap gap-1.5">
                       {project.technologies.map((tech) => (
-                        <div key={tech} className="border-white bg-secondary text-secondary-foreground [a&]:hover:bg-secondary/90 text-xs px-2 py-1 hover:bg-primary/10 transition-colors">
+                        <div key={tech} className="border-white bg-secondary text-secondary-foreground [a&]:hover:bg-secondary/90 text-xs px-2 py-1 hover:bg-primary/10 transition-colors rounded-md"> {/* Added rounded-md */}
                           {tech}
                         </div>
                       ))}
@@ -176,4 +186,4 @@ export function Projects() {
       </div>
     </section>
   );
-} 
+}
