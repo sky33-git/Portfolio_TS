@@ -37,7 +37,7 @@ const projects = [
   {
     title: "Library Management Sytem",
     description: "An application to automate and streamline the management of books, users and transactions in a library, aimed at improving overall library operations",
-    technologies: ["HTML", "TAILWINDCSS", "JavaScript", "React.js", "MongoDB", "JWT"],
+    technologies: ["HTML", "CSS", "JavaScript", "React.js", "JSON Server"],
     liveUrl: "https://library-management-phi-gray.vercel.app/",
     status: "Featured",
     stats: { stars: "Effeciency", users: "Time cutting", growth: "Production" },
@@ -45,7 +45,7 @@ const projects = [
     achievements: [
       "Developed an application that automated library management for books, users, and transactions, significantly streamlining operations.",
       "Engineered robust state management with React Hooks and implemented seamless navigation, delivering a dynamic user experience.",
-      "Managed full CRUD operations for books and users by integrating with a express API to handle backend data.",
+      "Managed full CRUD operations for books and users by integrating with a JSON Server API to handle backend data.",
       "Incorporated advanced filtering, sorting, and conditional rendering to enhance usability and tailor the interface based on user roles and data."
     ]
   },
@@ -53,6 +53,7 @@ const projects = [
     title: "Infrastructure Monitoring & Vulnerability Scanning Suite",
     description: "Developed a full-featured Swiggy clone, enabling users to browse restaurants, view menus, place orders, and track deliveries.",
     technologies: ["HTML", "CSS", "JavaScript", "React.js", "Node.js", "Express.js", "MongoDB Atlas", "Redux Toolkit", "Tailwind CSS"],
+    liveUrl: "https://example.com/infra-monitor-live", // Added liveUrl for this project
     status: "UI Develop",
     stats: { stars: "30+ Rules", users: "Live API's", growth: "99% UI Match" },
     category: "Responsive design",
@@ -117,13 +118,13 @@ export default function App() { // Changed to default export App for direct prev
               <Card key={index} className="group relative overflow-hidden border-0 bg-gradient-to-br from-card to-card/50 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
 
                 <div className="relative h-48 bg-gradient-to-br from-purple-100 to-blue-100 flex items-end justify-start p-4">
-                  {/* Live Link Button - only for Library Management System */}
+                  {/* Live Link Button - Moved to absolute positioning at bottom-right */}
                   {project.liveUrl && (
                     <a
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-white text-sm font-semibold bg-blue-700/80 backdrop-blur-sm px-4 py-2 rounded-full hover:bg-blue-800/90 transition-colors duration-300 flex items-center gap-2 shadow-md"
+                      className="absolute bottom-4 right-4 text-white text-sm font-semibold bg-blue-700/80 backdrop-blur-sm px-4 py-2 rounded-full hover:bg-blue-800/90 transition-colors duration-300 flex items-center gap-2 shadow-md"
                     >
                       Live Project <span className="text-lg leading-none">→</span>
                     </a>
@@ -144,8 +145,8 @@ export default function App() { // Changed to default export App for direct prev
                     </div>
                   </div>
 
-                  {/* Stats at bottom */}
-                  <div className="absolute bottom-4 left-4 right-4">
+                  {/* Stats at bottom (now bottom-left, as live link is bottom-right) */}
+                  <div className="absolute bottom-4 left-4"> {/* Removed right-4 from here */}
                     <div className="flex justify-between items-center text-sm text-gray-700">
                       <div className="flex items-center gap-4">
                         <div className="flex items-center gap-1">
@@ -166,18 +167,18 @@ export default function App() { // Changed to default export App for direct prev
                 </div>
 
                 {/* Card Content */}
-                <CardHeader className="p-6 space-y-4"> {/* Adjusted padding here */}
+                <CardHeader className="p-6 space-y-4">
                   <div className="space-y-2">
-                    <CardTitle className="text-2xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors"> {/* Adjusted title size/color */}
+                    <CardTitle className="text-2xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
                       {project.title}
                     </CardTitle>
-                    <CardDescription className="text-gray-700 leading-relaxed text-base"> {/* Adjusted description styling */}
+                    <CardDescription className="text-gray-700 leading-relaxed text-base">
                       {project.description}
                     </CardDescription>
                   </div>
                 </CardHeader>
 
-                <CardContent className="p-6 space-y-4 pt-0"> {/* Adjusted padding, pt-0 to remove top padding */}
+                <CardContent className="p-6 space-y-4 pt-0">
                   {/* Key Achievements */}
                   {project.achievements && project.achievements.length > 0 && (
                     <div className="space-y-2">
