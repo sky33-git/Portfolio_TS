@@ -1,3 +1,5 @@
+"use client"
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/utils/Card";
 import { Star, Users, TrendingUp, Award, Shield, Code2 } from "lucide-react";
 
@@ -7,6 +9,7 @@ const projects = [
     description: "An application to automate and streamline the management of books, users and transactions in a library, aimed at improving overall library operations",
     technologies: [" HTML", "CSS", "JavaScript", "React.js", "JSON Server"],
     githubUrl: "https://github.com/sky33-git",
+    liveUrl: "https://library-management-phi-gray.vercel.app/",
     status: "Featured",
     stats: { stars: "Effeciency", users: "Time cutting", growth: "Production" },
     category: "Tool",
@@ -56,6 +59,10 @@ const getStatusColor = (status: string) => {
     default: return "bg-gradient-to-r from-primary to-purple-600";
   }
 };
+
+function handleClick(){
+  window.open(`https://library-management-phi-gray.vercel.app/`)
+}
 
 const getStatusIcon = (status: string) => {
   switch (status) {
@@ -111,6 +118,7 @@ export function Projects() {
 
                   <div className="absolute bottom-4 left-4 right-4">
                     <div className="flex justify-between items-center text-sm text-white/80">
+
                       <div className="flex items-center gap-4">
                         <div className="flex items-center gap-1">
                           <Star className="h-4 w-4" />
@@ -124,8 +132,21 @@ export function Projects() {
                           <TrendingUp className="h-4 w-4" />
                           <span>{project.stats.growth}</span>
                         </div>
+
+                        {project.liveUrl ? 
+        
+                        <button
+                          id="redirectButton"
+                          className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-300"
+                          onClick={handleClick} >
+                          Check Production!
+                        </button> : ""
+                       
+                       }
                       </div>
                     </div>
+
+
                   </div>
                 </div>
 
