@@ -30,10 +30,9 @@ const CardContent = ({ children, className }) => (
     {children}
   </div>
 );
-// --- End Placeholder Card Components ---
 
 
-const projects = [
+export default const projects = [
   {
     title: "Library Management Sytem",
     description: "An application to automate and streamline the management of books, users and transactions in a library, aimed at improving overall library operations",
@@ -78,7 +77,6 @@ const projects = [
   }
 ];
 
-// Helper function to get status color (using standard Tailwind colors)
 const getStatusColor = (status) => {
   switch (status) {
     case "Featured": return "bg-yellow-500 text-yellow-900";
@@ -118,7 +116,6 @@ export default function App() { // Changed to default export App for direct prev
               <Card key={index} className="group relative overflow-hidden border-0 bg-gradient-to-br from-card to-card/50 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
 
                 <div className="relative h-48 bg-gradient-to-br from-purple-100 to-blue-100 flex items-end justify-start p-4">
-                  {/* Live Link Button - Moved to absolute positioning at bottom-right */}
                   {project.liveUrl && (
                     <a
                       href={project.liveUrl}
