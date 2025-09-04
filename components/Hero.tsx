@@ -129,9 +129,18 @@ export function Hero() {
                     <span className="text-muted-foreground text-white">,</span>
                   </span>
                 </div>
+                
+                <div classname="flex">
+                  <span className="text-muted-foreground mr-4 w-6">6</span>
+                  <span className="ml-4 text-green-400">experience</span>
+                  <span className="text-muted-foreground">:</span>
+                  <span className="text-gray-500 ml-2">&apos;GTMotion.ai, as Full Stack Developer Intern&apos;
+                    <span className="text-muted-foreground text-white">,</span>
+                  </span>
+                </div> 
 
                 <div className="flex">
-                  <span className="text-muted-foreground mr-4 w-6">6</span>
+                  <span className="text-muted-foreground mr-4 w-6">7</span>
                   <span className="ml-4 text-green-400">education</span>
                   <span className="text-muted-foreground">:</span>
                   <span className="text-orange-400 ml-2">&apos;BSc - Computer Science&apos;</span>
@@ -139,20 +148,20 @@ export function Hero() {
                 </div>
 
                 <div className="flex">
-                  <span className="text-muted-foreground mr-4 w-6">7</span>
+                  <span className="text-muted-foreground mr-4 w-6">8</span>
                   <span className="ml-4 text-green-400">passion</span>
                   <span className="text-muted-foreground">:</span>
                   <span className="text-orange-400 ml-2">&apos;Building reliable frontend UI, backend systems and scalable applications&apos;</span>
                 </div>
 
                 <div className="flex">
-                  <span className="text-muted-foreground mr-4 w-6">8</span>
+                  <span className="text-muted-foreground mr-4 w-6">9</span>
                   <span className="text-yellow-500">{"}"}</span>
                 </div>
 
                 <div className="pt-2 border-t border-border/50">
                   <div className="flex items-center">
-                    <span className="text-muted-foreground mr-4 w-6">9</span>
+                    <span className="text-muted-foreground mr-4 w-6">10</span>
                     <span className="text-blue-500">export default</span>
                     <span className="text-white ml-2"> developer</span>
                     <span className="bg-white/20 w-2 h-5 ml-1 animate-pulse" />
@@ -165,7 +174,7 @@ export function Hero() {
           <div className="flex flex-col sm:flex-row gap-2  justify-center items-center max-w-2xl mx-auto">
             <button onClick={scrollToProjects} className="relative items-center justify-center p-0.5 mb-2 me-2 cursor-pointer overflow-hidden text-sm font-medium text-gray-900">
               <span className="relative flex items-center px-5 py-2.5 transition-all ease-in duration-75 bg-black rounded-xl text-gray-600 hover:bg-gradient-to-br from-purple-600 to-black hover:text-white">
-                <Code className="w-4 h-4" /> &nbsp; 4+ Projects
+                <Code className="w-4 h-4" /> &nbsp; 7+ Projects
               </span>
             </button>
 
