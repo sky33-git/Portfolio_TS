@@ -125,7 +125,7 @@ export function Hero() {
                   <span className="text-muted-foreground mr-4 w-6">5</span>
                   <span className="ml-4 text-green-400">technicalHighlights</span>
                   <span className="text-muted-foreground">:</span>
-                  <span className="text-gray-500 ml-2">&apos;Built 4+ responsive web applications which are role based UI components, component-driven architecture and best web performance practices&apos;
+                  <span className="text-gray-500 ml-2">&apos;Built 7+ responsive web applications which are role based UI components, component-driven architecture and best web performance practices&apos;
                     <span className="text-muted-foreground text-white">,</span>
                   </span>
                 </div>
